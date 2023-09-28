@@ -20,3 +20,12 @@ class IsSuperuser(BasePermission):
         if request.user.is_superuser:
             return True
         return False
+
+
+class IsActive(BasePermission):
+    message = "Пользователь не активен, обратитесь к администрации сервиса"
+
+    def has_permission(self, request, view):
+        if request.user.is_active:
+            return True
+        return False
