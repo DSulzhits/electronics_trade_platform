@@ -1,11 +1,11 @@
 from django.contrib import admin
-from users.models import User
+from suppliers.models import ChainElement
 
 
-@admin.register(User)
-class CourseAdmin(admin.ModelAdmin):
-    """Register User model in Admin
-    (Модель User зарегистрирована в админке"""
-    list_display = ('id', 'email', 'is_active',)
-    list_filter = ('id', 'email',)
+@admin.register(ChainElement)
+class ChainElementAdmin(admin.ModelAdmin):
+    """Register ChainElement model in Admin
+    (Модель ChainElement зарегистрирована в админке"""
+    list_display = ('id', 'supplier', 'name',)
+    list_filter = ('id', 'city',)
     ordering = ('id',)
