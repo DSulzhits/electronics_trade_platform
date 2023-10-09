@@ -23,4 +23,4 @@ class ChainElement(models.Model):
     class Meta:
         verbose_name = 'Chain Element'
         verbose_name_plural = 'Chain Elements'
-        ordering = ['supplier', 'name', ]
+        ordering = ['id']
