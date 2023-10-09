@@ -13,9 +13,12 @@ class ChainElement(models.Model):
     product_name = models.CharField(max_length=150, verbose_name='Product Name')
     product_model = models.CharField(max_length=150, verbose_name='Product Model')
     product_date = models.DateField(verbose_name='Product Date')
-    supplier = models.ForeignKey('self', default='No Supplier', on_delete=models.SET_DEFAULT, verbose_name='Supplier')
+    supplier = models.ForeignKey('self', on_delete=models.SET_NULL, **NULLABLE, verbose_name='Supplier')
     debt = models.DecimalField(max_digits=15, default=0, decimal_places=2, verbose_name='Debt')
     creation_time = models.DateTimeField(auto_now_add=True, verbose_name='Creation Time')
+
+    def __str__(self):
+        return f'{self.name}'
 
     class Meta:
         verbose_name = 'Chain Element'
