@@ -1,0 +1,92 @@
+[
+  {
+    "model": "suppliers.chainelement",
+    "pk": 1,
+    "fields": {
+      "name": "Factoria",
+      "email": "factoria@eltrade.ru",
+      "country": "Russia",
+      "city": "Moscow",
+      "street": "Street 15",
+      "house_number": "16",
+      "product_name": "Product_01",
+      "product_model": "Model_01",
+      "product_date": "2023-10-09",
+      "supplier": null,
+      "debt": "0.00",
+      "creation_time": "2023-10-09T10:12:28.865Z"
+    }
+  },
+  {
+    "model": "suppliers.chainelement",
+    "pk": 2,
+    "fields": {
+      "name": "Retail",
+      "email": "retail@eltrade.ru",
+      "country": "Belarus",
+      "city": "Minsk",
+      "street": "Street 16",
+      "house_number": "16",
+      "product_name": "Product_01",
+      "product_model": "Model_01",
+      "product_date": "2023-10-09",
+      "supplier": 1,
+      "debt": "10000.00",
+      "creation_time": "2023-10-09T10:17:16.330Z"
+    }
+  },
+  {
+    "model": "suppliers.chainelement",
+    "pk": 3,
+    "fields": {
+      "name": "Entrepreneur",
+      "email": "entrepreneur@eltrade.ru",
+      "country": "Belarus",
+      "city": "Brest",
+      "street": "Street 17",
+      "house_number": "17",
+      "product_name": "Product_01",
+      "product_model": "Model_01",
+      "product_date": "2023-10-09",
+      "supplier": 2,
+      "debt": "15000.25",
+      "creation_time": "2023-10-09T10:31:54.828Z"
+    }
+  },
+  {
+    "model": "suppliers.chainelement",
+    "pk": 4,
+    "fields": {
+      "name": "Factoria_test",
+      "email": "factoriatest@eltrade.ru",
+      "country": "Russia",
+      "city": "Moscow",
+      "street": "Street 18",
+      "house_number": "16",
+      "product_name": "Product_02",
+      "product_model": "Model_02",
+      "product_date": "2023-10-09",
+      "supplier": 1,
+      "debt": "10000.00",
+      "creation_time": "2023-10-09T13:32:26.896Z"
+    }
+  },
+  {
+    "model": "suppliers.chainelement",
+    "pk": 5,
+    "fields": {
+      "name": "Factoria_test2",
+      "email": "factoriatest2@eltrade.ru",
+      "country": "Russia",
+      "city": "Moscow",
+      "street": "Street 18",
+      "house_number": "16",
+      "product_name": "Product_03",
+      "product_model": "Model_03",
+      "product_date": "2023-10-09",
+      "supplier": 1,
+      "debt": "100000.00",
+      "creation_time": "2023-10-09T13:33:59.094Z"
+    }
+  }
+]
