@@ -16,7 +16,7 @@ class ChainElementListSerializer(ModelSerializer):
 
     class Meta:
         model = ChainElement
-        fields = ('id', 'name', 'email', 'supplier')
+        fields = ('id', 'name', 'email', 'supplier', 'country',)
 
 
 class ChainElementCreateSerializer(ModelSerializer):

@@ -9,8 +9,14 @@ from suppliers.models import ChainElement
 
 class ChainElementListAPIView(ListAPIView):
     serializer_class = ChainElementListSerializer
-    queryset = ChainElement.objects.all()
     permission_classes = [IsAuthenticated, IsActive]
+
+    def get_queryset(self):
+        queryset = ChainElement.objects.all()
+        country = self.request.query_params.get('country')
+        if country is not None:
+            queryset = queryset.filter(country=country)
+        return queryset
 
 
 class ChainElementCreateAPIView(CreateAPIView):
