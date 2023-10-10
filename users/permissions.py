@@ -5,7 +5,7 @@ from users.models import UserRoles
 class IsModerator(BasePermission):
     """Add custom permission for User.role Moderator
     (Добавлено дополнительное право доступа User.role Moderator)"""
-    message = "Вы не являетесь модератором!"
+    message = "Only for moderator"
 
     def has_permission(self, request, view):
         if request.user.role == UserRoles.MODERATOR:
@@ -14,7 +14,9 @@ class IsModerator(BasePermission):
 
 
 class IsSuperuser(BasePermission):
-    message = "Только для администраторов ресурса"
+    """Add custom permission for superuser
+    (Добавлено дополнительное право доступа superuser)"""
+    message = "Only for administrator"
 
     def has_permission(self, request, view):
         if request.user.is_superuser:
@@ -23,7 +25,9 @@ class IsSuperuser(BasePermission):
 
 
 class IsActive(BasePermission):
-    message = "Пользователь не активен, обратитесь к администрации сервиса"
+    """Add custom permission for active users
+    (Добавлено дополнительное право доступа для активных пользователей"""
+    message = "User is not active, please contact the service administration"
 
     def has_permission(self, request, view):
         if request.user.is_active:

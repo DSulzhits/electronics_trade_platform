@@ -6,6 +6,9 @@ from users.permissions import IsActive, IsSuperuser, IsModerator
 
 from suppliers.models import ChainElement
 
+"""Add CRUD endpoints for Model: ChainElement
+(Добавлен CRUD для Модели: ChainElement)"""
+
 
 class ChainElementListAPIView(ListAPIView):
     serializer_class = ChainElementListSerializer

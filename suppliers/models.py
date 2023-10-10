@@ -4,6 +4,8 @@ NULLABLE = {'blank': True, 'null': True}
 
 
 class ChainElement(models.Model):
+    """Add Model ChainElement
+    (Добавлена Модель ChainElement (Элемент цепи продаж))"""
     name = models.CharField(max_length=150, verbose_name='Name')
     email = models.EmailField(unique=True, verbose_name='Email')
     country = models.CharField(max_length=150, default='Not indicated', verbose_name='Country')

@@ -4,6 +4,8 @@ from suppliers.models import ChainElement
 
 @admin.action(description="Clear debt summ")
 def clear_summ(modeladmin, request, queryset):
+    """Add admin action, which allows you to reset your debt to 0
+    (Добавлена admin action, которая позволяет сбросить долг до 0"""
     queryset.update(debt=0)
 
 
