@@ -2,12 +2,14 @@ from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView,
 from rest_framework.permissions import IsAuthenticated
 from suppliers.serializers.chainelement_serializres import ChainElementSerializer, ChainElementListSerializer, \
     ChainElementCreateSerializer, ChainElementUpdateSerializer
+from suppliers.serializers.product_serializers import ProductSerializer, ProductListSerializer, ProductCreateSerializer, \
+    ProductUpdateSerializer
 from users.permissions import IsActive, IsSuperuser, IsModerator
 
-from suppliers.models import ChainElement
+from suppliers.models import ChainElement, Product
 
-"""Add CRUD endpoints for Model: ChainElement
-(Добавлен CRUD для Модели: ChainElement)"""
+"""Add CRUD endpoints for Models: ChainElement, Product
+(Добавлен CRUD для Модели: ChainElement, Product)"""
 
 
 class ChainElementListAPIView(ListAPIView):
@@ -42,5 +44,34 @@ class ChainElementUpdateAPIView(UpdateAPIView):
 
 class ChainElementDestroyAPIView(DestroyAPIView):
     serializer_class = ChainElementSerializer
+    queryset = ChainElement.objects.all()
+    permission_classes = [IsAuthenticated, IsActive, IsModerator | IsSuperuser]
+
+
+class ProductListAPIView(ListAPIView):
+    serializer_class = ProductListSerializer
+    permission_classes = [IsAuthenticated, IsActive]
+
+
+class ProductCreateAPIView(CreateAPIView):
+    serializer_class = ProductCreateSerializer
+    queryset = ChainElement.objects.all()
+    permission_classes = [IsAuthenticated, IsActive]
+
+
+class ProductRetrieveAPIView(RetrieveAPIView):
+    serializer_class = ProductSerializer
+    queryset = ChainElement.objects.all()
+    permission_classes = [IsAuthenticated, IsActive]
+
+
+class ProductUpdateAPIView(UpdateAPIView):
+    serializer_class = ProductUpdateSerializer
+    queryset = ChainElement.objects.all()
+    permission_classes = [IsAuthenticated, IsActive]
+
+
+class ProductDestroyAPIView(DestroyAPIView):
+    serializer_class = ProductSerializer
     queryset = ChainElement.objects.all()
     permission_classes = [IsAuthenticated, IsActive, IsModerator | IsSuperuser]
