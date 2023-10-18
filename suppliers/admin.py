@@ -1,5 +1,5 @@
 from django.contrib import admin
-from suppliers.models import ChainElement
+from suppliers.models import ChainElement, Product
 
 
 @admin.action(description="Clear debt summ")
@@ -17,3 +17,12 @@ class ChainElementAdmin(admin.ModelAdmin):
     list_filter = ('id', 'city',)
     ordering = ('id',)
     actions = [clear_summ]
+
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    """Register Product model in Admin
+    (Модель Product зарегистрирована в админке"""
+    list_display = ('id', 'name', 'model', 'seller',)
+    list_filter = ('id', 'name',)
+    ordering = ('id',)
