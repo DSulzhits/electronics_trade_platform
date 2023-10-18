@@ -4,20 +4,24 @@ NULLABLE = {'blank': True, 'null': True}
 
 
 class ChainElement(models.Model):
-    """Add Model ChainElement
-    (Добавлена Модель ChainElement (Элемент цепи продаж))"""
-    name = models.CharField(max_length=150, verbose_name='Name')
-    email = models.EmailField(unique=True, verbose_name='Email')
-    country = models.CharField(max_length=150, default='Not indicated', verbose_name='Country')
-    city = models.CharField(max_length=150, default='Not indicated', verbose_name='City')
-    street = models.CharField(max_length=150, default='Not indicated', verbose_name='Street')
-    house_number = models.CharField(max_length=150, default='Not indicated', verbose_name='House Number')
-    product_name = models.CharField(max_length=150, verbose_name='Product Name')
-    product_model = models.CharField(max_length=150, verbose_name='Product Model')
-    product_date = models.DateField(verbose_name='Product Date')
-    supplier = models.ForeignKey('self', on_delete=models.SET_NULL, **NULLABLE, verbose_name='Supplier')
+    """Add Model Supplier
+    (Добавлена Модель Supplier (Поставщик))"""
+    CHAIN_LEVEL = (
+        (0, 'Factory'),
+        (1, 'Retail'),
+        (2, 'Entrepreneur')
+    )
+
+    name = models.CharField(max_length=150, verbose_name='Supplier Name')
+    email = models.EmailField(unique=True, verbose_name='Supplier Email')
+    country = models.CharField(max_length=150, verbose_name='Supplier Country')
+    city = models.CharField(max_length=150, verbose_name='Supplier Country')
+    street = models.CharField(max_length=150, verbose_name='Supplier Country')
+    house_number = models.CharField(max_length=150, verbose_name='Supplier Country')
     debt = models.DecimalField(max_digits=15, default=0, decimal_places=2, verbose_name='Debt')
-    creation_time = models.DateTimeField(auto_now_add=True, verbose_name='Creation Time')
+    supplier = models.ForeignKey('self', on_delete=models.SET_NULL, **NULLABLE, verbose_name='Supplier')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Supplier Created')
+    chain_level = models.IntegerField(choices=CHAIN_LEVEL, verbose_name='Chain Level')
 
     def __str__(self):
         return f'{self.name}'
