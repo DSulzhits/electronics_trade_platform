@@ -27,7 +27,7 @@ class ChainElementCreateSerializer(ModelSerializer):
 
     class Meta:
         model = ChainElement
-        exclude = ('creation_time',)
+        exclude = ('created_at',)
 
 
 class ChainElementUpdateSerializer(ModelSerializer):
@@ -35,4 +35,4 @@ class ChainElementUpdateSerializer(ModelSerializer):
 
     class Meta:
         model = ChainElement
-        exclude = ('id', 'creation_time',)
+        exclude = ('id', 'created_at',)
