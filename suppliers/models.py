@@ -33,6 +33,8 @@ class ChainElement(models.Model):
 
 
 class Product(models.Model):
+    """Add Model Product
+    (Добавлена Модель Product (Продукт))"""
     name = models.CharField(max_length=150, verbose_name='Name')
     model = models.CharField(max_length=150, verbose_name='Model')
     date = models.DateField(verbose_name='Date')

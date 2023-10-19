@@ -2,6 +2,9 @@ from rest_framework.serializers import ModelSerializer
 from suppliers.models import ChainElement, Product
 from rest_framework.relations import SlugRelatedField
 
+"""Add serializers for Product views
+(Добавлены сериализаторы для контроллеров Product)"""
+
 
 class ProductSerializer(ModelSerializer):
     seller = SlugRelatedField(slug_field="name", queryset=ChainElement.objects.all())
