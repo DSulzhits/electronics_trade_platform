@@ -50,28 +50,29 @@ class ChainElementDestroyAPIView(DestroyAPIView):
 
 class ProductListAPIView(ListAPIView):
     serializer_class = ProductListSerializer
+    queryset = Product.objects.all()
     permission_classes = [IsAuthenticated, IsActive]
 
 
 class ProductCreateAPIView(CreateAPIView):
     serializer_class = ProductCreateSerializer
-    queryset = ChainElement.objects.all()
+    queryset = Product.objects.all()
     permission_classes = [IsAuthenticated, IsActive]
 
 
 class ProductRetrieveAPIView(RetrieveAPIView):
     serializer_class = ProductSerializer
-    queryset = ChainElement.objects.all()
+    queryset = Product.objects.all()
     permission_classes = [IsAuthenticated, IsActive]
 
 
 class ProductUpdateAPIView(UpdateAPIView):
     serializer_class = ProductUpdateSerializer
-    queryset = ChainElement.objects.all()
+    queryset = Product.objects.all()
     permission_classes = [IsAuthenticated, IsActive]
 
 
 class ProductDestroyAPIView(DestroyAPIView):
     serializer_class = ProductSerializer
-    queryset = ChainElement.objects.all()
+    queryset = Product.objects.all()
     permission_classes = [IsAuthenticated, IsActive, IsModerator | IsSuperuser]
